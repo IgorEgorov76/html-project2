@@ -63,7 +63,7 @@ function showSlides2(n) {
 
 //////////////////////////
 
-autoSlider();
+/*autoSlider();
 var timer;
 function autoSlider() {
     timer = setTimeout(plusSlide2, 3000);
@@ -71,7 +71,7 @@ function autoSlider() {
 function plusSlide2() {
     showSlides2(slideIndex2 += 1)
     autoSlider();
-}
+}*/
 
 ///////////////////////////
 
@@ -90,3 +90,32 @@ function toggleAccordion() {
 }
 
 items.forEach((item) => item.addEventListener('click', toggleAccordion));
+
+///////////////////////////////
+
+var slideIndex3 = 1;
+showSlides3(slideIndex3);
+
+function currentSlide3(n) {
+    showSlides3(slideIndex3 = n)
+}
+
+function showSlides3(n) {
+    var i;
+    var slides = document.getElementsByClassName("productivity-img");
+    var dots = document.getElementsByClassName("productivity-dots__item");
+    if (n > slides.length) {
+        slideIndex3 = 1
+    }
+    if (n < 1) {
+        slideIndex3 = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "")
+    }
+    slides[slideIndex3 - 1].style.display = "block";
+    dots[slideIndex3 - 1].className += " active";
+}
